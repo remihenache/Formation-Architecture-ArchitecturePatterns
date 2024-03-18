@@ -4,7 +4,6 @@ public class LoginPresenter
 {
     private LoginModel _model;
     private ILoginViewPresenter _view;
-    private readonly LoginService _loginService = new LoginService();
 
     public void SetModel(LoginModel model)
     {
@@ -21,7 +20,6 @@ public class LoginPresenter
     {
         var input = _view.GetInput();
         _model.Name = input;
-        var message = _loginService.SayHello(input);
-        _view.SetMessage(message);
+        _view.SetMessage(_model.GetMessage());
     }
 }
